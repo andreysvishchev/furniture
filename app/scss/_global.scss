@@ -1,0 +1,43 @@
+body {
+  color: $main;
+  @extend %title;
+  overflow-x: hidden;
+}
+
+
+.container {
+  max-width: 1230px;
+  margin: 0 auto;
+  padding: 0 15px;
+}
+
+.title {
+  font-weight: bold;
+  font-size: 102px;
+  line-height: 122px;
+  position: relative;
+  margin-bottom: 55px;
+
+  &::before {
+    position: absolute;
+    content: '';
+    color: $accent;
+    font-size: 96px;
+    line-height: 120px;
+    top: 6px;
+    left: 13px;
+    letter-spacing: 1.2px;
+  }
+}
+
+.btn-link {
+  border-radius: 2px;
+  margin-right: 55px;
+  padding: 25px 54px;
+  background-color: $accent;
+  color: #fff;
+  font-size: 22px;
+  line-height: 26px;
+  font-weight: 600;
+  @extend %title;
+}

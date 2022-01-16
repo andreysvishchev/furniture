@@ -1,0 +1,632 @@
+@import 'vars';
+@import 'fonts';
+@import 'reset';
+@import 'libs';
+
+@import 'global';
+
+.header {
+  padding-top: 50px;
+  padding-bottom: 80px;
+
+  &__inner {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+}
+
+.logo {
+  img {
+    max-width: max-content;
+  }
+}
+
+.menu {
+
+  &__list {
+    display: flex;
+    justify-content: center;
+  }
+
+  &__item {
+    margin-right: 80px;
+    position: relative;
+    list-style-type: none;
+
+    &:last-child {
+      margin-right: 0;
+    }
+
+    &:after {
+      content: "";
+      position: absolute;
+      z-index: -1;
+      left: 50%;
+      transform: translateX(-50%) rotate(0deg);
+    }
+
+    &:nth-child(1):after {
+      background: $accent;
+    }
+
+    &:nth-child(2):after {
+      background: #A1D3A2;
+    }
+
+    &:nth-child(3):after {
+      background: #50B8E7;
+    }
+
+    &:nth-child(4):after {
+      background: #efe200;
+    }
+
+    &:nth-child(1):after {
+      clip-path: polygon(6% 10%, 100% 0, 64% 65%, 28% 65%);
+      height: 85px;
+      width: 75px;
+      bottom: -47px;
+      animation: stretch 2s ease infinite;
+    }
+
+    &:nth-child(2):after {
+      clip-path: polygon(61% 0%, 100% 19%, 71% 100%, 0% 100%);
+      height: 55px;
+      width: 75px;
+      bottom: -18px;
+      animation: stretch2 1.5s ease infinite;
+    }
+
+    &:nth-child(3):after {
+      clip-path: polygon(0% 0%, 100% 0%, 100% 99%, 0% 57%);
+      height: 55px;
+      width: 45px;
+      bottom: -18px;
+      animation: stretch3 2s ease infinite;
+    }
+
+    &:nth-child(4):after {
+      clip-path: polygon(0% 40%, 100% 0%, 100% 99%, 19% 100%);
+      height: 55px;
+      width: 45px;
+      bottom: -18px;
+      animation: stretch4 2s ease infinite;
+    }
+
+    &:hover:after {
+      animation: boink 1s ease forwards 1;
+    }
+  }
+
+  &__link {
+    font-size: 22px;
+    line-height: 26px;
+    letter-spacing: 1px;
+    color: $main;
+    font-weight: 600;
+  }
+}
+
+@keyframes boink {
+  80% {
+    transform: scaleX(1.9) scaleY(0.6) translateX(-30%);
+  }
+}
+
+@keyframes stretch {
+  25% {
+    transform: translateX(-50%) rotate(2deg) scaleY(0.93);
+  }
+
+  50% {
+    transform: translateX(-50%) rotate(-2deg) scaleX(0.93);
+    clip-path: polygon(6% 20%, 100% 0, 64% 65%, 28% 65%);
+  }
+
+  75% {
+    transform: translateX(-50%) rotate(3deg) scale(1.05);
+  }
+}
+
+@keyframes stretch2 {
+  25% {
+    transform: translateX(-50%) rotate(-2deg) scaleY(1.05);
+  }
+
+  50% {
+    transform: translateX(-50%) rotate(2deg) scaleY(0.93) scaleX(1.06);
+    clip-path: polygon(61% 0%, 100% 19%, 71% 100%, 12% 100%);
+  }
+
+  75% {
+    transform: translateX(-50%) rotate(3deg) scale(1.05);
+    clip-path: polygon(61% 0%, 80% 19%, 71% 100%, 12% 100%);
+  }
+}
+
+@keyframes stretch3 {
+  25% {
+    transform: translateX(-50%) rotate(-2deg) scaleY(1.05);
+  }
+
+  50% {
+    transform: translateX(-50%) rotate(2deg) scaleY(0.93) scaleX(1.06);
+    clip-path: polygon(10% 5%, 100% 0%, 100% 99%, 0% 57%);
+  }
+
+  75% {
+    transform: translateX(-50%) rotate(3deg) scale(1.05);
+    clip-path: polygon(0% 0%, 100% 0%, 100% 99%, 10% 37%);
+  }
+}
+
+@keyframes stretch4 {
+  25% {
+    transform: translateX(-50%) rotate(-2deg) scaleY(1.05);
+  }
+
+  50% {
+    transform: translateX(-50%) rotate(2deg) scaleY(0.93) scaleX(1.06);
+    clip-path: polygon(0% 40%, 100% 0%, 100% 99%, 19% 100%);
+  }
+
+  75% {
+    transform: translateX(-50%) rotate(3deg) scaleY(1.05);
+    clip-path: polygon(0% 40%, 100% 0%, 100% 99%, 19% 100%);
+  }
+}
+
+.user {
+  display: flex;
+
+  &__btn {
+    margin-right: 40px;
+  }
+}
+
+.main {
+  padding-bottom: 200px;
+
+  &__inner {
+    display: flex;
+    justify-content: space-between;
+  }
+
+  &__content {
+    background-image: url('../images/decor.png');
+    background-repeat: no-repeat;
+    background-size: cover;
+    width: 58%;
+    position: relative;
+
+
+    &::before {
+      content: '';
+      position: absolute;
+      height: 265px;
+      background-color: $accent;
+      top: -132px;
+      left: -50px;
+      width: 100%;
+      transform: translate(-100%, 50%);
+    }
+  }
+
+  &__subtitle {
+    margin-top: 100px;
+    color: $accent;
+    font-weight: bold;
+    font-size: 20px;
+    @extend %title;
+    margin-bottom: 60px;
+  }
+
+  &__title {
+    font-weight: bold;
+    font-size: 55px;
+    line-height: 67px;
+    @extend %title;
+    max-width: 650px;
+    margin-bottom: 50px;
+  }
+
+  &__video-box {
+    display: flex;
+  }
+
+  &__video {
+    display: flex;
+    align-items: center;
+    font-weight: 600;
+    font-size: 22px;
+    line-height: 27px;
+    color: $main;
+    @extend %title;
+
+    span {
+      width: 55px;
+      height: 55px;
+      border-radius: 50%;
+      box-shadow: 0px 4px 70px rgba(0, 0, 0, 0.15);
+      margin-right: 25px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+  }
+
+  &__images {
+    width: 42%;
+    position: relative;
+    z-index: 5;
+
+    img {
+      width: 100%;
+    }
+
+    &::before {
+      content: '';
+      position: absolute;
+      width: 318px;
+      height: 202px;
+      background-image: url('../images/decor-img.png');
+      z-index: -1;
+      background-repeat: no-repeat;
+      background-size: cover;
+      top: 30px;
+      right: -75px;
+    }
+  }
+}
+
+
+
+.about {
+  padding-bottom: 220px;
+
+  &__inner {
+    display: flex;
+  }
+
+  &__images {
+    margin-right: 130px;
+    position: relative;
+
+    &::after,
+    &::before {
+      position: absolute;
+      content: '';
+    }
+
+    &::after {
+      height: 350px;
+      width: 50px;
+      bottom: 50px;
+      right: -50px;
+      background-color: #29313a;
+    }
+
+    &::before {
+      height: 205px;
+      width: 50px;
+      left: -50px;
+      bottom: 20px;
+      background-color: #29313a;
+    }
+
+    img {
+      width: 100%;
+    }
+  }
+
+  &__decor {
+    position: absolute;
+    background-image: url('../images/about-decor.png');
+    background-repeat: no-repeat;
+    background-size: cover;
+    bottom: -87px;
+    left: 100px;
+    width: 480px;
+    height: 306px;
+    z-index: -1;
+  }
+
+  &__content {
+    max-width: 550px;
+  }
+
+  &__subtitle {
+    font-weight: bold;
+    font-size: 60px;
+    line-height: 73px;
+    margin-top: 50px;
+  }
+
+  &__title {
+    &::before {
+      content: 'Furniture';
+    }
+  }
+
+  &__text {
+    font-size: 22px;
+    line-height: 30px;
+    @extend %text;
+    color: rgba(40, 42, 48, 0.5);
+    margin-bottom: 70px;
+  }
+}
+
+.more {
+  padding-bottom: 320px;
+
+  &__subtitle {
+    font-weight: 600;
+    font-size: 40px;
+    line-height: 49px;
+  }
+
+  &__title {
+    &::before {
+      content: 'Furniture';
+    }
+  }
+
+  &__inner {
+    background-image: url('../images/more.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    width: 100%;
+    height: 580px;
+    position: relative;
+
+    &::before {
+      content: '';
+      position: absolute;
+      background-image: url('../images/more-decor.png');
+      background-repeat: no-repeat;
+      background-size: cover;
+      background-position: center;
+      width: 482px;
+      height: 306px;
+      bottom: -190px;
+      left: 100px;
+      z-index: -1;
+    }
+  }
+
+  &__item {
+    width: 450px;
+    height: 200px;
+    background-color: #fff;
+    box-shadow: 20px 4px 100px rgba(0, 0, 0, 0.1);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 40px 40px 40px 115px;
+    position: absolute;
+
+    &::before {
+      content: '';
+      position: absolute;
+      background: rgba(247, 81, 92, 0.05);
+      width: 50px;
+      height: 50px;
+      border-radius: 50%;
+      top: 47px;
+      left: 47px;
+      font-size: 20px;
+      line-height: 23px;
+      color: $accent;
+      font-weight: bold;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    &:nth-child(1) {
+      top: 90px;
+      left: -130px;
+
+      &::before {
+        content: '1';
+      }
+    }
+
+    &:nth-child(2) {
+      top: -50px;
+      right: 40px;
+
+      &::before {
+        content: '2';
+      }
+    }
+
+    &:nth-child(3) {
+      bottom: -85px;
+      right: -90px;
+
+      &::before {
+        content: '2';
+      }
+    }
+  }
+
+  &__item-title {
+    font-weight: bold;
+    font-size: 20px;
+    line-height: 24px;
+    margin-bottom: 13px;
+  }
+}
+
+.product {
+  margin-bottom: 180px;
+
+  &__subtitle {
+    font-weight: 600;
+    font-size: 40px;
+    line-height: 49px;
+  }
+
+  &__title {
+    &::before {
+      content: 'Product';
+    }
+  }
+}
+
+.slider {
+  &__item {
+    width: 280px;
+    height: 430px;
+    text-align: center;
+  }
+
+  &__img {
+    object-fit: cover;
+    width: 280px;
+    height: 312px;
+    margin-bottom: 45px;
+  }
+
+  &__title {
+    font-weight: bold;
+    font-size: 22px;
+    line-height: 27px;
+    margin-bottom: 15px;
+  }
+
+  &__price {
+    font-weight: 600;
+    font-size: 22px;
+    line-height: 27px;
+    color: rgba(40, 42, 48, 0.3);
+  }
+
+  .slick-arrow {
+    position: absolute;
+    top: -80px;
+    right: 0;
+    background-color: transparent;
+    width: 50px;
+    height: 50px;
+    font-size: 0;
+    border: 2px solid #282A30;
+    border-radius: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: all .3s;
+
+    &:hover {
+      transform: scale(1.2);
+    }
+
+    &::before {
+      content: '';
+      width: 7px;
+      height: 13px;
+      background-repeat: no-repeat;
+      background-size: cover;
+      background-position: center;
+    }
+  }
+
+  .slick-prev {
+    right: 100px;
+
+    &::before {
+      background-image: url('../images/prev.svg');
+    }
+  }
+
+  .slick-next {
+
+    &::before {
+      background-image: url('../images/next.svg');
+    }
+  }
+}
+
+.try {
+  padding-bottom: 150px;
+
+  &__inner {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+    background-image: url('../images/decor.png');
+  }
+
+  &__img-box {
+    margin-bottom: 30px;
+    position: relative;
+  }
+
+  &__title {
+    margin-bottom: 90px;
+
+    &::before {
+      content: 'Try Now';
+    }
+  }
+
+  &__images-inner {
+    position: relative;
+
+    &::before {
+      content: '';
+      position: absolute;
+      background-image: url('../images/about-decor.png');
+      background-repeat: no-repeat;
+      background-position: center;
+      background-size: cover;
+      width: 482px;
+      height: 306px;
+      bottom: 30px;
+      right: -100px;
+      z-index: -1;
+    }
+  }
+}
+
+.footer {
+  padding-bottom: 100px;
+
+  &__inner {
+    border-top: 3px solid #282A30;
+    padding-top: 100px;
+    display: flex;
+    justify-content: space-between;
+  }
+
+  &__item-title {
+    font-weight: 600;
+    font-size: 26px;
+    line-height: 31px;
+    letter-spacing: 1px;
+    margin-bottom: 50px;
+  }
+
+  &__link {
+    font-style: normal;
+    font-weight: normal;
+    font-size: 18px;
+    line-height: 22px;
+    letter-spacing: 1px;
+    margin-bottom: 25px;
+    color: rgba(40, 42, 48, 0.8);
+    display: block;
+  }
+}
+
+
+
+
+
+@import 'media';
